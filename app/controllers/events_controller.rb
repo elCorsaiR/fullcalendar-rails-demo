@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.where(start: params[:start]..params[:ends])
+    @events = Event.where(start: Date.parse(params[:start])..Date.parse(params[:ends]))
   end
 
   def show
